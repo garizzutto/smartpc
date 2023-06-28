@@ -15,9 +15,8 @@ const server = http.createServer((req, res) => {
     });
     req.on('end', () => {
       // Converter os dados em um objeto
-      let data = querystring.parse(body);
+      let data = JSON.parse(body);
       // Verificar se os dados contêm o endereço MAC do computador alvo
-      console.log(body)
       if (data.mac) {
         // Criar um pacote mágico com o endereço MAC
         let mac = data.mac.split(':').map(hex => parseInt(hex, 16));
