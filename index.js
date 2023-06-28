@@ -52,7 +52,7 @@ const server = http.createServer((req, res) => {
   } else if (req.method === 'GET' && req.url === '/') {
     // Responder com o texto hello world se a requisição for do tipo GET e tiver o caminho /
     const data = {
-      message: 'Hello world',
+      message: 'Hello',
       status: 200
     };    
     res.end(JSON.stringify(data));
