@@ -63,7 +63,10 @@ const server = http.createServer((req, res) => {
   }
 });
 
-// Fazer o servidor escutar na porta 3000
-server.listen(3000, () => {
-  console.log('Server listening on port 3000');
+// Obter a porta do Heroku ou usar 3000 como padrão
+const port = process.env.PORT || 3000;
+
+// Fazer o servidor escutar na porta definida
+server.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
