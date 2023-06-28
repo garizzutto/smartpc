@@ -29,6 +29,12 @@ const server = http.createServer((req, res) => {
         // Obter o IP do request
         let ip = req.socket.remoteAddress;
         // Enviar o pacote mágico para o IP do request na porta 9
+                
+        // Converter o IP de IPv6 para IPv4 se necessário
+        if (ip.includes('::ffff:')) {
+          ip = ip.replace('::ffff:', '');
+        }
+
         client.send(magicPacket, 9, ip, err => {
           // Tratar possíveis erros de envio
           if (err) {
