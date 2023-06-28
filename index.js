@@ -51,7 +51,11 @@ const server = http.createServer((req, res) => {
     });
   } else if (req.method === 'GET' && req.url === '/') {
     // Responder com o texto hello world se a requisição for do tipo GET e tiver o caminho /
-    res.end({message: 'Hello world'});
+    const data = {
+      message: 'Hello world',
+      status: 200
+    };    
+    res.end(JSON.stringify(data));
   } else {
     // Responder com código de erro 404 se a requisição não for do tipo POST ou GET ou não tiver o caminho /wol ou /
     res.statusCode = 404;
